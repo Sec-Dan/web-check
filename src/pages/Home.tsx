@@ -181,7 +181,7 @@ const Home = (): JSX.Element => {
             <li><a href="/about">+ more!</a></li>
           </ul>
           <a href="https://DanSec.Red" title="Go back to DanSec.Red">
-            <Button>Deploy your own</Button>
+            <Button>Go back to DanSec.Red</Button>
           </a>
         </div>
       </SiteFeaturesWrapper>
