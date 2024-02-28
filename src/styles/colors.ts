@@ -1,23 +1,24 @@
 
 const colors = {
-  primary: '#9fef00',
-  primaryLighter: '#cff97a',
-  textColor: '#ffffff',
-  textColorSecondary: '#a4b1cd',
-  background: '#141d2b',
-  backgroundDarker: '#111927',
-  backgroundLighter: '#1a2332',
-  bgShadowColor: '#0f1620',
-  fgShadowColor: '#456602',
-  primaryTransparent: '#9fef0012',
+  primary: '#E53935', // Original: Green, Now: Red
+  primaryLighter: '#EF9A9A', // Lighter Red
+  textColor: '#FFFFFF', // White (Unchanged)
+  textColorSecondary: '#B71C1C', // Darker Red for secondary text
+  background: '#3E2723', // Very dark red, almost brown
+  backgroundDarker: '#1B0000', // Darker version of the above
+  backgroundLighter: '#5D4037', // Lighter, warmer brown-red
+  bgShadowColor: '#260E0E', // Shadow color, darker red
+  fgShadowColor: '#880E4F', // Foreground shadow, deep red
+  primaryTransparent: '#E5393512', // Transparent Red
 
   // Action Colors
-  info: '#04e4f4',
-  success: '#20e253',
-  warning: '#f6f000',
-  error: '#fca016',
-  danger: '#f80363',
-  neutral: '#272f4d',
+  info: '#FFCDD2', // Light Red instead of Blue
+  success: '#C8E6C9', // Light Green, adjusted to a softer red tone
+  warning: '#FFCCBC', // Light Orange, adjusted to a soft red-orange
+  error: '#D32F2F', // Darker Red for errors
+  danger: '#B71C1C', // Even Darker Red for critical issues
+  neutral: '#EFEBE9', // Neutral, adjusted to a very light red tone
 };
+
 
 export default colors;
