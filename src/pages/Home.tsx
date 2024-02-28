@@ -180,7 +180,6 @@ const Home = (): JSX.Element => {
             {docs.map((doc, index) => (<li key={index}>{doc.title}</li>))}
             <li><a href="/about">+ more!</a></li>
           </ul>
-        </div>
           <a href="https://DanSec.Red" title="Go back to DanSec.Red">
             <Button>Deploy your own</Button>
           </a>
