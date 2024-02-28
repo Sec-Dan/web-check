@@ -5,8 +5,8 @@ const colors = {
   textColor: '#FFFFFF', // White (Unchanged)
   textColorSecondary: '#B71C1C', // Darker Red for secondary text
   background: '#3E2723', // Very dark red, almost brown
-  backgroundDarker: '#1B0000', // Darker version of the above
-  backgroundLighter: '#5D4037', // Lighter, warmer brown-red
+  backgroundDarker: '#1b0000', // Darker version of the above
+  backgroundLighter: '#240000', // Lighter, warmer brown-red
   bgShadowColor: '#260E0E', // Shadow color, darker red
   fgShadowColor: '#880E4F', // Foreground shadow, deep red
   primaryTransparent: '#E5393512', // Transparent Red
