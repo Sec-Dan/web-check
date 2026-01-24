@@ -40,19 +40,32 @@ const ALink = styled.a`
   }
 `;
 
-const Footer = (props: { isFixed?: boolean }): JSX.Element => {
+type FooterProps = {
+  isFixed?: boolean;
+};
+
+const Footer = ({ isFixed }: FooterProps): JSX.Element => {
   const forkUrl = 'https://github.com/Sec-Dan/web-check';
   const upstreamUrl = 'https://github.com/Lissy93/web-check';
   const upstreamLicenseUrl = 'https://github.com/Lissy93/web-check/blob/master/LICENSE';
 
   return (
-    <StyledFooter style={ ...(props.isFixed ? { position: 'fixed' } : {}) }>
+    <StyledFooter style={isFixed ? { position: 'fixed' } : undefined}>
       <span>
-        <b>DanSec Web-Check</b> · <ALink href={forkUrl}>Source</ALink>
+        <b>DanSec Web-Check</b> ·{' '}
+        <ALink href={forkUrl} target="_blank" rel="noopener noreferrer">
+          Source
+        </ALink>
       </span>
       <span>
-        Credit: <ALink href={upstreamUrl}>Web-Check</ALink> (MIT) · 
-        <ALink href={upstreamLicenseUrl}>License</ALink>
+        Based on{' '}
+        <ALink href={upstreamUrl} target="_blank" rel="noopener noreferrer">
+          Web-Check
+        </ALink>{' '}
+        (MIT) ·{' '}
+        <ALink href={upstreamLicenseUrl} target="_blank" rel="noopener noreferrer">
+          License
+        </ALink>
       </span>
     </StyledFooter>
   );
