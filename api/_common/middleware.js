@@ -8,7 +8,7 @@ const TIMEOUT = process.env.API_TIMEOUT_LIMIT ? parseInt(process.env.API_TIMEOUT
 // If present, set CORS allowed origins for responses
 const ALLOWED_ORIGINS = process.env.API_CORS_ORIGIN || '*';
 
-// Disable everything :( Setting this env var will turn off the instance, and show message
+// Disable everything
 const DISABLE_EVERYTHING = !!process.env.VITE_DISABLE_EVERYTHING;
 
 // Set the platform currently being used
@@ -44,6 +44,42 @@ const commonMiddleware = (handler) => {
       }, timeoutMs);
     });
   };
+
+  // Vercel + Node (Express)
+  const vercelHandler = async (request, response) => {
+    if (DISABLE_EVERYTHING) {
+      response.status(503).json({ error: disabledErrorMsg });
+      return;
+    }
+
+    const rawUrl = request?.query?.url;
+
+    if (!rawUrl) {
+      response.status(500).json({ error: 'No URL specified' });
+      return;
+    }
+
+    const url = normalizeUrl(rawUrl);
+
+    try {
+      const handlerResponse = await Promise.race([
+        handler(url, request, response),
+        createTimeoutPromise(TIMEOUT),
+      ]);
+
+      if (handlerResponse?.body && handlerResponse?.statusCode) {
+        response.status(handlerResponse.statusCode).set(handlerResponse.headers || headers)
+          .send(handlerResponse.body);
+      } else {
+        response.status(200).set(headers).json(handlerResponse);
+      }
+    } catch (error) {
+      const isTimeout = String(error?.message || '').includes('timed-out');
+      response.status(500).json({ error: isTimeout ? timeoutErrorMsg : error.message });
+    }
+  };
+
+  // Netlify
   const netlifyHandler = async (event, context, callback) => {
     const queryParams = event.queryStringParameters || event.query || {};
     const rawUrl = queryParams.url;
@@ -72,10 +108,10 @@ const commonMiddleware = (handler) => {
       // Race the handler against the timeout
       const handlerResponse = await Promise.race([
         handler(url, event, context),
-        createTimeoutPromise(TIMEOUT)
+        createTimeoutPromise(TIMEOUT),
       ]);
 
-      if (handlerResponse.body && handlerResponse.statusCode) {
+      if (handlerResponse?.body && handlerResponse?.statusCode) {
         callback(null, handlerResponse);
       } else {
         callback(null, {
@@ -85,9 +121,10 @@ const commonMiddleware = (handler) => {
         });
       }
     } catch (error) {
+      const isTimeout = String(error?.message || '').includes('timed-out');
       callback(null, {
         statusCode: 500,
-        body: JSON.stringify({ error: error.message }),
+        body: JSON.stringify({ error: isTimeout ? timeoutErrorMsg : error.message }),
         headers,
       });
     }
@@ -99,6 +136,7 @@ const commonMiddleware = (handler) => {
 };
 
 if (PLATFORM === 'NETLIFY') {
+  // eslint-disable-next-line no-undef
   module.exports = commonMiddleware;
 }
 
