@@ -4,7 +4,7 @@
   "version": "2.0.2",
   "homepage": "https://dansec.red",
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "scripts": {
     "start": "node server",
