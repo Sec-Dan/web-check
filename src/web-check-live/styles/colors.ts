@@ -1,14 +1,17 @@
 const colors = {
   primary: '#E53935', // DanSec Red
-  primaryLighter: '#EF9A9A',
+  primaryLighter: '#FF7A76',
+
   textColor: '#FFFFFF',
-  textColorSecondary: '#B71C1C',
-  background: '#3E2723',
-  backgroundDarker: '#1b0000',
-  backgroundLighter: '#240000',
-  bgShadowColor: '#260E0E',
-  fgShadowColor: '#880E4F',
-  primaryTransparent: '#E5393512',
+  textColorSecondary: '#FFFFFFB6',
+
+  background: '#0b0b0f',
+  backgroundDarker: '#050507',
+  backgroundLighter: '#14141a',
+
+  bgShadowColor: '#0a0a0f',
+  fgShadowColor: '#E53935',
+  primaryTransparent: '#E5393530',
 
   // Action Colors
   info: '#FFCDD2',
@@ -16,7 +19,7 @@ const colors = {
   warning: '#FFCCBC',
   error: '#D32F2F',
   danger: '#B71C1C',
-  neutral: '#EFEBE9',
+  neutral: '#EFEBE9'
 };
 
 export default colors;

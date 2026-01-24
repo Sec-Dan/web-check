@@ -1,18 +1,21 @@
 :root {
-  --primary: #E53935;
-  --primary-lighter: #EF9A9A;
+  --primary: #E53935;              /* DanSec red */
+  --primary-lighter: #FF7A76;
   --text-color: #ffffff;
   --text-color-secondary: #ffffffb6;
   --text-color-thirdly: #ffffff5b;
-  --background: #3E2723;
-  --background-darker: #1b0000;
-  --background-lighter: #240000;
-  --background-50: #3E272380;
-  --bg-shadow-color: #260E0E;
-  --fg-shadow-color: #880E4F;
+
+  --background: #0b0b0f;           /* near-black */
+  --background-darker: #050507;
+  --background-lighter: #14141a;
+  --background-50: #0b0b0f80;
+
+  --bg-shadow-color: #0a0a0f;
+  --fg-shadow-color: #E53935;
+
   --primary-transparent: #E5393530;
 
-  // Action Colors
+  /* Action Colors */
   --info: #FFCDD2;
   --success: #C8E6C9;
   --warning: #FFCCBC;
@@ -21,16 +24,21 @@
   --neutral: #EFEBE9;
 }
 
-
+/* Keep “light mode” DanSec too (no green) */
 html[data-theme="light"] {
-  --primary: #4a7700;
-  --primary-lighter: #a4cf50;
-  --text-color: #333333;
-  --text-color-secondary: #57667e;
-  --background: #ffffff;
-  --background-darker: #f0f0f0;
-  --background-lighter: #fafafa;
-  --bg-shadow-color: #e0e0e0;
-  --fg-shadow-color: #678800;
-  --primary-transparent: #4a770033;
+  --primary: #E53935;
+  --primary-lighter: #FF7A76;
+  --text-color: #ffffff;
+  --text-color-secondary: #ffffffb6;
+  --text-color-thirdly: #ffffff5b;
+
+  --background: #0b0b0f;
+  --background-darker: #050507;
+  --background-lighter: #14141a;
+  --background-50: #0b0b0f80;
+
+  --bg-shadow-color: #0a0a0f;
+  --fg-shadow-color: #E53935;
+
+  --primary-transparent: #E5393530;
 }
