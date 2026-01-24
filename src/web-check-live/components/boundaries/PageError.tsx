@@ -96,7 +96,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
           <Nav>
             <HeaderLinkContainer>
               <Link to="/"><Button>Go back Home</Button></Link>
-              <a target="_blank" rel="noreferrer" href="https://github.com/lissy93/web-check"><Button>View on GitHub</Button></a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/Sec-Dan/web-check"><Button>View on GitHub</Button></a>
             </HeaderLinkContainer>
           </Nav>
           <ErrorInner>
@@ -116,7 +116,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
               )}
             </ErrorDetails>
             <Button onClick={() => window.location.reload()}>Reload Page</Button>
-            <a target="_blank" rel="noreferrer" href="github.com/lissy93/web-check/issues/choose">
+            <a target="_blank" rel="noreferrer" href="github.com/Sec-Dan/web-check/issues/new/choose">
               Report Issue
             </a>
           </ErrorInner>

@@ -21,8 +21,8 @@ const Nav = (props: { children?: ReactNode}) => {
   return (
     <Header as="header">
     <Heading color={colors.primary} size="large">
-      <img width="64" src="/web-check.png" alt="Web Check Icon" />
-      <a href="/" target="_self">Web Check</a>
+      <img width="64" src="/web-check.png" alt="DanSec Web-Check Icon" />
+      <a href="/" target="_self">DanSec Web-Check</a>
     </Heading>
       {props.children && props.children}
   </Header>

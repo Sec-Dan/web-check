@@ -13,18 +13,13 @@ interface Props {
 
 // Default meta tag values
 const siteInfo = {
-  title: 'Web Check',
-	titleLong: 'Web Check - X-Ray Vision for any Website',
-  description: 'Web Check is the all-in-one OSINT and security tool, for revealing the inner workings of any website',
+  title: 'DanSec Web-Check',
+  titleLong: 'DanSec Web-Check - Website OSINT Toolkit',
+  description: 'DanSec Web-Check is a privacy-focused website OSINT and security toolbox for inspecting a domain, host, or URL.',
   keywords: '',
-  author: 'Alicia Sykes',
-  twitter: '@Lissy_Sykes',
-  site: import.meta.env.SITE_URL || 'https://web-check.xyz',
-  analytics: {
-    enable: import.meta.env.ENABLE_ANALYTICS,
-    domain: 'web-check.as93.net',
-    script: 'https://no-track.as93.net/js/script.js',
-  },
+  author: 'DanSec',
+  twitter: '',
+  site: import.meta.env.SITE_URL || 'https://dansec.red',
 };
 
 // Set values for the meta tags, from props or defaults
@@ -37,7 +32,7 @@ const {
 } = Astro.props;
 
 // Set non-customizable values for meta tags, from the siteInfo
-const { site, author, twitter, analytics, titleLong } = siteInfo;
+const { site, author, twitter, titleLong } = siteInfo;
 
 // Given a map of breadcrumbs, return the JSON-LD for the BreadcrumbList schema
 const makeBreadcrumbs = () => {
@@ -80,20 +75,15 @@ const makeBreadcrumbs = () => {
 <meta property="og:title" content={titleLong}>
 <meta property="og:description" content={description}>
 <meta property="og:image" content={`${site}/banner.png`}>
-<meta name="twitter:card" content="summary">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content={site}>
 <meta name="twitter:title" content={titleLong}>
 <meta name="twitter:description" content={description}>
-<meta name="twitter:image" content=`${site}/banner.png`}>
+<meta name="twitter:image" content={`${site}/banner.png`}>
 <link rel="twitter:image" sizes="180x180" href={`${site}/apple-touch-icon.png`}>
 <meta name="twitter:site" content={twitter}>
 <meta name="twitter:creator" content={twitter}>
 
-<!-- Non-tracking hit counter -->
-{analytics.enable && (
-  <script defer data-domain={analytics.domain} src={analytics.script}></script>
-)}
 
 <!-- Schema.org markup for Google -->
 {breadcrumbs && (

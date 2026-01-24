@@ -39,7 +39,7 @@ const useMotherOfAllHooks = <ResultType = any>(params: UseIpAddressProps<ResultT
 
   const doTheFetch = () => {
     if (keys.disableEverything) {
-      updateLoadingJobs(jobId, 'skipped', 'Web-Check is temporarily disabled. Please try again later.', reset);
+      updateLoadingJobs(jobId, 'skipped', 'DanSec Web-Check is temporarily disabled. Please try again later.', reset);
       return Promise.resolve();
     }
     return fetchRequest()
@@ -54,7 +54,7 @@ const useMotherOfAllHooks = <ResultType = any>(params: UseIpAddressProps<ResultT
         }
       } else if (res.errorType && res.errorMessage) {
         const errorMessage = `${res.errorType}\n${res.errorMessage}\n\n`
-        + `This sometimes occurs on Netlify if using the free plan. You may need to upgrade to use lambda functions`;
+        + `This can happen on some hosting platforms if request timeouts are too low. Consider increasing function timeouts or using a larger plan.`;
         updateLoadingJobs(jobId, 'error', errorMessage, reset);
       } else if (res.skipped) { // Response returned a skipped message
         updateLoadingJobs(jobId, 'skipped', res.skipped, reset);

@@ -1,8 +1,8 @@
 {
-  "name": "web-check",
+  "name": "dansec-web-check",
   "type": "module",
   "version": "2.0.2",
-  "homepage": "https://web-check.xyz",
+  "homepage": "https://dansec.red",
   "scripts": {
     "start": "node server",
     "start-pm": "pm2 start server.js -i max",
@@ -61,7 +61,6 @@
     "@astrojs/cloudflare": "^10.2.5",
     "@astrojs/netlify": "^5.2.0",
     "@astrojs/node": "^8.2.5",
-    "@astrojs/partytown": "^2.1.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/svelte": "^5.4.0",
     "@astrojs/ts-plugin": "^1.6.1",
@@ -69,5 +68,14 @@
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.0",
     "sass": "^1.77.1"
-  }
+  },
+  "description": "DanSec Web-Check - privacy-focused fork of Web-Check (website OSINT and security toolkit).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sec-Dan/web-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sec-Dan/web-check/issues"
+  },
+  "author": "DanSec"
 }

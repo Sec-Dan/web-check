@@ -39,7 +39,7 @@ const limits = [
 // Construct a message to be returned if the user has been rate-limited
 const makeLimiterResponseMsg = (retryAfter) => {
   const why = 'This keeps the service running smoothly for everyone. '
-  + 'You can get around these limits by running your own instance of Web Check.';
+  + 'You can get around these limits by running your own instance of DanSec Web-Check.';
   return `You've been rate-limited, please try again in ${retryAfter} seconds.\n${why}`;
 };
 
@@ -84,7 +84,7 @@ const renderPlaceholderPage = async (res, msgId, logs) => {
     + 'Run <code>yarn build</code> to continue, then restart the server.',
     notCompiledSsrHandler: 'Server-side rendering failed to initiate, as SSR handler not found.<br />'
     + 'This can be fixed by running <code>yarn build</code>, then restarting the server.<br />',
-    disabledGui:  'Web-Check API is up and running!<br />Access the endpoints at '
+    disabledGui:  'DanSec Web-Check API is up and running!<br />Access the endpoints at '
     + `<a href="${API_DIR}"><code>${API_DIR}</code></a>`,
   };
   const logOutput = logs ? `<div class="logs"><code>${logs}</code></div>` : '';
@@ -197,10 +197,10 @@ const printMessage = () => {
     '     \\ \\/\\/ / -_) \'_ \\___| (__| \' \\/ -_) _| / /\n' +
     '      \\_/\\_/\\___|_.__/    \\___|_||_\\___\\__|_\\_\\\n' +
     `\x1b[0m\n`,
-    `\x1b[1m\x1b[32m🚀 Web-Check is up and running at http://localhost:${port} \x1b[0m\n\n`,
+    `\x1b[1m\x1b[32m🚀 DanSec Web-Check is up and running at http://localhost:${port} \x1b[0m\n\n`,
     `\x1b[2m\x1b[36m🛟 For documentation and support, visit the GitHub repo: ` +
-    `https://github.com/lissy93/web-check \n`,
-    `💖 Found Web-Check useful? Consider sponsoring us on GitHub ` +
+    `https://github.com/Sec-Dan/web-check \n`,
+    ` ` +
     `to help fund maintenance & development.\x1b[0m`
   );
 };

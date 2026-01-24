@@ -1,0 +1,34 @@
+{
+  "name": "dansec-web-check",
+  "description": "DanSec Web-Check - privacy-first fork of Web-Check (website OSINT and security toolkit).",
+  "repository": "https://github.com/Sec-Dan/web-check",
+  "keywords": [
+    "osint",
+    "security",
+    "privacy",
+    "web",
+    "dansec"
+  ],
+  "env": {
+    "PLATFORM": {
+      "value": "node"
+    },
+    "OUTPUT": {
+      "value": "hybrid"
+    },
+    "SITE_URL": {
+      "description": "The public URL where this app is hosted (used for canonical URLs and sitemaps).",
+      "required": false
+    },
+    "API_TIMEOUT_LIMIT": {
+      "description": "API request timeout in milliseconds.",
+      "value": "120000",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

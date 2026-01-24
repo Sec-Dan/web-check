@@ -1,28 +1,20 @@
 ---
-const repo = 'github.com/lissy93/web-check';
-const github = `https://${repo}`;
+const forkRepo = 'github.com/Sec-Dan/web-check';
+const forkUrl = 'https://' + forkRepo;
 
-const licenseText = 'MIT';
-const licenseLink = `${github}/blob/master/LICENSE`;
+const upstreamRepo = 'github.com/Lissy93/web-check';
+const upstreamUrl = 'https://' + upstreamRepo;
+const upstreamLicense = upstreamUrl + '/blob/master/LICENSE';
 
-const aboutLink = '/about';
-const projectName = 'Web Check';
-
-const authorName = 'Alicia Sykes';
-const authorLink = 'https://aliciasykes.com';
-const currentYear = new Date().getFullYear();
+const projectName = 'DanSec Web-Check';
 ---
 
 <footer>
   <p>
-    View source at <a href={github}>{repo}</a>
+    <b>{projectName}</b> · <a href={forkUrl}>Source</a>
   </p>
   <p>
-    <a href={aboutLink}>{projectName}</a>
-    is licensed under
-    <a href={licenseLink}>{licenseText}</a>
-    - © <a href={authorLink}>{authorName}</a>
-    {currentYear}
+    Credit: <a href={upstreamUrl}>Web-Check</a> (MIT) · <a href={upstreamLicense}>License</a>
   </p>
 </footer>
 

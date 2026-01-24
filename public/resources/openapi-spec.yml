@@ -1,32 +1,24 @@
 openapi: 3.0.0
 info:
-  title: Web Check 🕵
+  title: DanSec Web-Check 🕵
   description: >
-    **API documentation for the [Web Check](https://github.com/lissy93/web-check) backend endpoints.**<br>
-    _Web Check gives you x-ray vision, revealing the configration and inner workings of any website._
+    **API documentation for the [DanSec Web-Check](https://github.com/Sec-Dan/web-check) backend endpoints.**<br>
+    _DanSec Web-Check gives you x-ray vision, revealing the configration and inner workings of any website._
     <br><br>
-    [![Website - Web-Check.xyz](https://img.shields.io/badge/Website-webcheck.zyz-9fef00?style=flat&logo=googlecloudstorage&logoColor=white&labelColor=1c1d28)](https://web-check.xyz/)
-    [![DockerHub - Lissy93/Web-Check](https://img.shields.io/badge/DockerHub-Lissy93/Web_Check-1fb1f4?style=flat&logo=docker&logoColor=white&labelColor=1c1d28)](https://hub.docker.com/r/lissy93/web-check)
-    [![GitHub - Lissy93/Web-Check](https://img.shields.io/badge/GitHub-Lissy93/Web_Check-a832fc?style=flat&logo=github&logoColor=white&labelColor=1c1d28)](https://github.com/lissy93/web-check)
-    [![Sponsor - Alicia Sykes](https://img.shields.io/badge/Sponsor-Alicia_Sykes-f2159a?style=flat&logo=githubsponsors&logoColor=white&labelColor=1c1d28)](https://github.com/sponsors/Lissy93)
   
   version: 1.0.0
   license:
     name: 'License: MIT'
-    url: https://github.com/Lissy93/web-check/blob/master/LICENSE
+    url: https://github.com/Sec-Dan/web-check/blob/master/LICENSE
   termsOfService: https://web-check.xyz/about#terms-info
 externalDocs:
   description: 'Source: GitHub'
-  url: https://github.com/Lissy93/web-check
+  url: https://github.com/Sec-Dan/web-check
 servers:
   - url: http://localhost:3001/api
     description: Local (Development)
   - url: http://localhost:3000/api
     description: Local (Production)
-  - url: https://web-check.xyz/api
-    description: Public Demo (Vercel)
-  - url: https://web-check.as93.net/api
-    description: Public Demo (Netlify)
 tags:
   - name: Quality & Info
     description: Endpoints providing quality metrics, and general website information.
@@ -2774,7 +2766,7 @@ paths:
                   whoisData: 
                     domain: 
                       id: "1722029712_DOMAIN_NET-VRSN"
-                      domain: "as93.net"
+                      domain: "dansec.red"
                       name: "as93"
                       extension: "net"
                       whois_server: "whois.cloudflare.com"
@@ -2804,7 +2796,7 @@ paths:
                       phone_ext: "DATA REDACTED"
                       fax: "DATA REDACTED"
                       fax_ext: "DATA REDACTED"
-                      email: "https://domaincontact.cloudflareregistrar.com/as93.net"
+                      email: "https://dansec.red"
                     administrative: 
                       name: "DATA REDACTED"
                       organization: "DATA REDACTED"
@@ -2817,7 +2809,7 @@ paths:
                       phone_ext: "DATA REDACTED"
                       fax: "DATA REDACTED"
                       fax_ext: "DATA REDACTED"
-                      email: "https://domaincontact.cloudflareregistrar.com/as93.net"
+                      email: "https://dansec.red"
                     technical: 
                       name: "DATA REDACTED"
                       organization: "DATA REDACTED"
@@ -2830,7 +2822,7 @@ paths:
                       phone_ext: "DATA REDACTED"
                       fax: "DATA REDACTED"
                       fax_ext: "DATA REDACTED"
-                      email: "https://domaincontact.cloudflareregistrar.com/as93.net"
+                      email: "https://dansec.red"
                     billing: 
                       name: "DATA REDACTED"
                       organization: "DATA REDACTED"
@@ -2843,7 +2835,7 @@ paths:
                       phone_ext: "DATA REDACTED"
                       fax: "DATA REDACTED"
                       fax_ext: "DATA REDACTED"
-                      email: "https://domaincontact.cloudflareregistrar.com/as93.net"
+                      email: "https://dansec.red"
         '204':
           $ref: '#/components/responses/Skipped'
         '500':
