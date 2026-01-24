@@ -2,8 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // Integrations
 import svelte from '@astrojs/svelte';
-import react from "@astrojs/react";
-import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 
 // Adapters
 import vercelAdapter from '@astrojs/vercel/serverless';
@@ -16,7 +15,7 @@ const unwrapEnvVar = (varName, fallbackValue) => {
   const classicEnvVar = process?.env && process.env[varName];
   const viteEnvVar = import.meta.env[varName];
   return classicEnvVar || viteEnvVar || fallbackValue;
-}
+};
 
 // Determine the deploy target (vercel, netlify, cloudflare, node)
 const deployTarget = unwrapEnvVar('PLATFORM', 'node').toLowerCase();
@@ -24,7 +23,8 @@ const deployTarget = unwrapEnvVar('PLATFORM', 'node').toLowerCase();
 // Determine the output mode (server, hybrid or static)
 const output = unwrapEnvVar('OUTPUT', 'hybrid');
 
-// The FQDN of where the site is hosted (used for sitemaps & canonical URLs)
+// The FQDN of where the site is hosted (used for canonical URLs)
+// Note: Sitemap is now generated via src/pages/sitemap.xml.ts (no @astrojs/sitemap integration)
 const site = unwrapEnvVar('SITE_URL', 'https://dansec.red');
 
 // The base URL of the site (if serving from a subdirectory)
@@ -34,11 +34,11 @@ const base = unwrapEnvVar('BASE_URL', '/');
 const isBossServer = unwrapEnvVar('BOSS_SERVER', false);
 
 // Initialize Astro integrations
-const integrations = [svelte(), react(), sitemap()];
+const integrations = [svelte(), react()];
 
 // Set the appropriate adapter, based on the deploy target
 function getAdapter(target) {
-  switch(target) {
+  switch (target) {
     case 'vercel':
       return vercelAdapter();
     case 'netlify':
