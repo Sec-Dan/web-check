@@ -1,27 +1,28 @@
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 
 // Integrations
 import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
 
 // Adapters
-import vercelAdapter from '@astrojs/vercel/serverless';
+import vercelAdapter from '@astrojs/vercel';
 import netlifyAdapter from '@astrojs/netlify';
 import nodeAdapter from '@astrojs/node';
 import cloudflareAdapter from '@astrojs/cloudflare';
 
-// Helper function to unwrap both Vite and Node environment variables
-const unwrapEnvVar = (varName, fallbackValue) => {
-  const classicEnvVar = process?.env && process.env[varName];
-  const viteEnvVar = import.meta.env[varName];
-  return classicEnvVar || viteEnvVar || fallbackValue;
-};
+// Pre-load .env so values are available in this config, before Vite
+const fileEnv = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
+
+// Read an env var, preferring shell over .env, with a final fallback
+const unwrapEnvVar = (varName, fallbackValue) =>
+  process.env[varName] ?? fileEnv[varName] ?? fallbackValue;
 
 // Determine the deploy target (vercel, netlify, cloudflare, node)
 const deployTarget = unwrapEnvVar('PLATFORM', 'node').toLowerCase();
 
-// Determine the output mode (server, hybrid or static)
-const output = unwrapEnvVar('OUTPUT', 'hybrid');
+// Determine the output mode (static or server). Mixed prerender supported in static mode
+const output = unwrapEnvVar('OUTPUT', 'static');
 
 // The FQDN of where the site is hosted (used for canonical URLs)
 // Note: Sitemap is now generated via src/pages/sitemap.xml.ts (no @astrojs/sitemap integration)
@@ -56,10 +57,10 @@ const adapter = getAdapter(deployTarget);
 // Print build information to console
 console.log(
   `\n\x1b[1m\x1b[35m Preparing to start build of DanSec Web-Check.... \x1b[0m\n`,
-  `\x1b[35m\x1b[2mCompiling for "${deployTarget}" using "${output}" mode, `
-  + `to deploy to "${site}" at "${base}"\x1b[0m\n`,
+  `\x1b[35m\x1b[2mCompiling for "${deployTarget}" using "${output}" mode, ` +
+    `to deploy to "${site}" at "${base}"\x1b[0m\n`,
   `\x1b[2m\x1b[36m🛟 For documentation and support, visit the GitHub repo: ` +
-  `https://github.com/Sec-Dan/web-check \n`,
+    `https://github.com/Sec-Dan/web-check \n`,
 );
 
 const redirects = {
@@ -73,4 +74,3 @@ if (!isBossServer && isBossServer !== true) {
 
 // Export Astro configuration
 export default defineConfig({ output, base, integrations, site, adapter, redirects });
-
