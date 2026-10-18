@@ -28,6 +28,23 @@ const { preloadBodyFont = true } = Astro.props;
     <ClientRouter />
     <MetaTags {...Astro.props} />
     <slot name="head" />
+    <script is:inline>
+      // Strip the scanned target from analytics so Umami only sees "/check"
+      window.umamiBeforeSend = (type, payload) => {
+        const scrub = (u) => u && u.replace(/\/check\/[^?#]+/, '/check');
+        payload.url = scrub(payload.url);
+        payload.referrer = scrub(payload.referrer);
+        return payload;
+      };
+    </script>
+    <script
+      is:inline
+      defer
+      src="https://analytics.swiftworks.dev/script.js"
+      data-website-id="b0d0c736-1ba1-4b7d-9623-2a72750746fd"
+      data-before-send="umamiBeforeSend"
+      data-exclude-search="true"
+    ></script>
     {
       preloadBodyFont && (
         <link
